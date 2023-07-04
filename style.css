@@ -75,6 +75,11 @@ button {
     transition: all 1s ease-in-out;
     border: 2px solid black;
 }
+.story {
+    font-size: 20pt;
+    font-family: 'Courier New', Courier, monospace;
+    transition: all 1s ease-in-out;
+}
 .hidden {
     display: none;
 }
