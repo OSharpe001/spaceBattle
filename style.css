@@ -13,7 +13,6 @@ body {
 h1 {
     color: aliceblue;
     font-size: 20pt;
-    /* font-family: 'Courier New', Courier, monospace; */
     background: linear-gradient(to left, black, red, blue);
     border-radius: 16pt;
 }
@@ -26,15 +25,10 @@ h1 {
     /* align-content: center; */
     /* text-align: center; */
     margin: 10px auto;
-    padding: 60px auto;
     width: 100%;
     text-decoration: underline;
-    /* font-size: 20pt; */
     font-family: 'Courier New', Courier, monospace;
-    /* background: linear-gradient(to left, black, red, blue); */
     color: aliceblue;
-    /* height: 60px; */
-    /* border-radius: 16pt; */
 }
 button {
     width: 11ch;
@@ -66,12 +60,12 @@ button {
 }
 .reset-game {
     color: aliceblue;
-    background: radial-gradient(red, yellow);
+    background: radial-gradient(rgb(81, 255, 0), rgb(141, 188, 230));
     border: 2px solid red;
 }
 .reset-game:hover {
     color: black;
-    background: radial-gradient(yellow, rgb(141, 188, 230));
+    background: radial-gradient(rgb(0, 255, 225), rgb(141, 188, 230));
     transition: all 1s ease-in-out;
     border: 2px solid black;
 }
@@ -82,4 +76,7 @@ button {
 }
 .hidden {
     display: none;
+}
+.beginning-statement {
+    font-size: 16pt;
 }
