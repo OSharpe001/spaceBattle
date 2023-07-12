@@ -42,9 +42,16 @@ class EarthShip {
                     window.alert(`Captain, our remaining hull strength is ${this.hull}\nWhat's the next move, Sir?`);
                     retreatBtn.className = "retreat button";
                 } else {
-                    console.log(`The ${this.name} returns triumphant!`);
-                    console.log('Earth is safe for another day. . .');
-                    setTimeout(() => window.alert(`The ${this.name} returns triumphant!\nEarth is safe for another day. . .`), 50);
+                    if (this.hull >= 20) {
+                        console.log(`The ${this.name} returns with a flawless victory!`);
+                        console.log(`You're bound to get promoted after that display!`);
+                        console.log('Earth is safe for another day. . .');
+                        setTimeout(() => window.alert(`The ${this.name} returns  with a flawless victory!\nYou're bound to get promoted after that display!\nEarth is safe for another day. . .`), 50);
+                    } else {
+                        console.log(`The ${this.name} returns triumphant!`);
+                        console.log('Earth is safe for another day. . .');
+                        setTimeout(() => window.alert(`The ${this.name} returns triumphant!\nEarth is safe for another day. . .`), 50);
+                    };
                     fireLaserBtn.classList.toggle("hidden");
                     retreatBtn.classList.toggle("hidden");
                     setTimeout(() => {resetBtn.classList.toggle("hidden")}, 2000);
@@ -104,7 +111,7 @@ const USS_Assembly = new EarthShip("USS Assembly");
 
 const enemyFighters = [];
 
-for (i = 1; i <= initialEnemyCount; i++) {
+for (let i = 1; i <= initialEnemyCount; i++) {
     let alienShip = new AlienShip(`Alien Ship #${i}`);
     enemyFighters.push(alienShip);
 };
@@ -115,10 +122,17 @@ fireLaserBtn.addEventListener("click", () => USS_Assembly.fireLaser(currentComba
 retreatBtn.addEventListener("click", () => USS_Assembly.retreat());
 resetBtn.addEventListener("click", () => window.location = "index.html");
 
+// PROMPT SECTION (ONLY REGARDS TO STARTING THE GAME)
 let sillyResponse=0;
 const startGame = () => {
-    startGamePrompt = window.prompt("Are you ready to begin?");
-    if (sillyResponse >= 3 && (startGamePrompt != "y" || startGamePrompt != "yes")) {
+    let startGamePrompt = window.prompt("Are you ready to begin?");
+    startGamePrompt = startGamePrompt.toLowerCase();
+    if (startGamePrompt === "y" || startGamePrompt === "yes") {
+        setTimeout(()=>startingStory.classList.add("hidden"), 1000);
+        setTimeout(()=>firstGameStartText.classList.toggle("hidden"), 1500);
+        setTimeout(()=>firstGameStartText.classList.toggle("hidden"), 5500);
+        setTimeout(() => fireLaserBtn.classList.toggle("hidden"), 6000);
+    } else if (sillyResponse >= 3) {
         window.alert(`Do you think this is a game, Captain?!? (🤣🤣🤣)\nThe WHOLE WORLD is depending on you, right now!\nThere's no going back or "playing the fool"!\nNow let's go tan some alien hide!`);
         sillyResponse = 0;
         setTimeout(()=>startGame(), 6000);
@@ -127,13 +141,7 @@ const startGame = () => {
         window.alert(`Don't ignore your responsiblities, Captain!\nType "y" or "yes" to start game.`);
         setTimeout(()=>startGame(), 6000);
     } else {
-        startGamePrompt = startGamePrompt.toLowerCase();
-        if (startGamePrompt === "y" || startGamePrompt === "yes") {
-            setTimeout(()=>startingStory.classList.add("hidden"), 1000);
-            setTimeout(()=>firstGameStartText.classList.toggle("hidden"), 1500);
-            setTimeout(()=>firstGameStartText.classList.toggle("hidden"), 5500);
-            setTimeout(() => fireLaserBtn.classList.toggle("hidden"), 6000);
-        } else if (startGamePrompt === "n" || startGamePrompt === "no") {
+        if (startGamePrompt === "n" || startGamePrompt === "no") {
             sillyResponse++;
             window.alert("We know that this is an arduous mission but the world needs you, Captain and time is of the essence!\nWe'll give you a few more seconds to temper your nerves...");
             setTimeout(()=>startGame(), 6000);
@@ -145,9 +153,3 @@ const startGame = () => {
     };
 };
 setTimeout(()=>startGame(), 6000);
-
-
-// console.log(`There's ${enemyFighters.length} enemies left!`);
-// console.log(`The current combatant is ${currentCombatant.name}.`);
-// console.log(`${currentCombatant.name}'s laser strength is ${currentCombatant.firepower}!`);
-// console.log(`${currentCombatant.name}'s remaining hull strength is ${currentCombatant.hull}.`);
