@@ -5,31 +5,28 @@ html {
     height: 100%;
     width: 100%;
 }
+
 body {
     text-align: center;
     display: flex;
     flex-direction: column;
 }
+
 h1 {
     color: aliceblue;
     font-size: 20pt;
     background: linear-gradient(to left, black, red, blue);
     border-radius: 16pt;
 }
+
 .title {
-    /* justify-content: center; */
-    /* justify-self: center; */
-    /* justify-items: center; */
-    /* align-items: center; */
-    /* align-self: center; */
-    /* align-content: center; */
-    /* text-align: center; */
     margin: 10px auto;
     width: 100%;
     text-decoration: underline;
     font-family: 'Courier New', Courier, monospace;
     color: aliceblue;
 }
+
 button {
     width: 11ch;
     margin: 30px auto;
@@ -37,46 +34,55 @@ button {
     font-size: 16pt;
     border-radius: 16px;
 }
+
 .fire-laser {
     color: aliceblue;
     background: radial-gradient(red, yellow);
     border: 2px solid red;
 }
+
 .fire-laser:hover {
     color: black;
     background: radial-gradient(yellow, red);
     transition: all 1s ease-in-out;
 }
+
 .retreat {
     color: aliceblue;
     background: radial-gradient(rgb(141, 188, 230), yellow);
     border: 2px solid yellow;
 }
+
 .retreat:hover {
     color: black;
     background: radial-gradient(yellow, rgb(141, 188, 230));
     transition: all 1s ease-in-out;
     border: 2px solid black;
 }
+
 .reset-game {
     color: aliceblue;
     background: radial-gradient(rgb(81, 255, 0), rgb(141, 188, 230));
     border: 2px solid red;
 }
+
 .reset-game:hover {
     color: black;
     background: radial-gradient(rgb(0, 255, 225), rgb(141, 188, 230));
     transition: all 1s ease-in-out;
     border: 2px solid black;
 }
+
 .story {
     font-size: 20pt;
     font-family: 'Courier New', Courier, monospace;
     transition: all 1s ease-in-out;
 }
+
 .hidden {
     display: none;
 }
+
 .beginning-statement {
     font-size: 16pt;
 }
