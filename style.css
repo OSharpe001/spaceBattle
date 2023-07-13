@@ -73,7 +73,7 @@ button {
     border: 2px solid black;
 }
 
-.story {
+.mission-briefing {
     font-size: 20pt;
     font-family: 'Courier New', Courier, monospace;
     transition: all 1s ease-in-out;
