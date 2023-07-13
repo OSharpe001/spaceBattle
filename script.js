@@ -6,7 +6,7 @@ const firstGameStartText = document.querySelector(".first-game");
 // UNTIL FURTHER UPDATES, THEIR WILL BE SIX ALIEN SHIPS
 let initialEnemyCount = 6;
 
-// CLASS FOR CREATING AN EARTHSIP OBJECT
+// CLASS FOR CREATING AN EARTHSHIP OBJECT
 class EarthShip {
     constructor(shipName, hull = 20, firepower = 5, accuracy = 0.7) {
       this.name = shipName;
@@ -17,12 +17,12 @@ class EarthShip {
 
     fireLaser(enemy) {
         // AFTER PRESSING THE "Fire Laser" BUTTON...
-        // CONSOLE LOGS AND ALERT TO DISPLAY CURRENT STATUS OF CURRENT ENEMY
+        // CONSOLE LOGS AND ALERT TO DISPLAY CURRENT STATUS OF CURRENT ENEMY BEFORE "ENGAGMENT"
         console.log(`${enemy.name}'s laser strength is ${enemy.firepower}!`);
         console.log(`${enemy.name}'s remaining hull strength is ${enemy.hull}.`);
         console.log(`Engaging ${enemy.name}!`);
         window.alert(`${enemy.name}'s laser strength is ${enemy.firepower}!\n${enemy.name}'s remaining hull strength is ${enemy.hull}.\nEngaging ${enemy.name}!`);
-        
+
         // "Math.random()" GETS A RANDOM DECIMAL NUMBER BETWEEN 0.0 AND 1.0
         if (Math.random() < this.accuracy) {
             // IF THE RANDOM NUMBER WAS LOWER THAN THE EARTHSIP'S ACCURACY, THE LASER HITS THE CURRENT ENEMY
@@ -66,19 +66,19 @@ class EarthShip {
                     window.alert(`Captain, our remaining hull strength is ${this.hull}\nWhat's the next move, Sir?`);
                     // THE RETREAT BUTTON IS MADE AVAILABLE ONLY AFTER DEFEATING THE FIRST ALIEN SHIP AND EVERY TIME, THEREAFTER, THAT ANAOTHER ALIEN SHIP IS DEFEATED (AS LONG AS THEIR ARE MORE ALIEN SHIPS TO FIGHT)
                     retreatBtn.className = "retreat button";
-                
+
                 // IF ALL ENEMY SHIPS ARE DEFEATED...
                 } else {
 
                     // IF THE USS_Assembly STILL HAS OVER 20 "HULL" VALUE A SPECIAL MESSAGE APPEARS TO CONGRATULATE YOUR FLAWLESS VICTORY
                     if (this.hull >= 20) {
-                        // CONSOLE LOGS AND ALERT FOR "FLAWLESS VICTORY"
+                        // CONSOLE LOGS AND ALERT FOR "FLAWLESS VICTORY" AND GAME "WIN" CONDITION
                         console.log(`The ${this.name} returns with a flawless victory!`);
                         console.log(`You're bound to get promoted after that display!`);
                         console.log('Earth is safe for another day. . .');
                         setTimeout(() => window.alert(`The ${this.name} returns  with a flawless victory!\nYou're bound to get promoted after that display!\nEarth is safe for another day. . .`), 50);
                     } else {
-                        // CONSOLE.LOGS AND ALERTS TO DISPLAY THAT PLAYER HAS WON THE GAME
+                        // CONSOLE.LOGS AND ALERTS TO DISPLAY THAT PLAYER HAS WON THE GAME (IF PLAYER TOOK DAMAGE)
                         console.log(`The ${this.name} returns triumphant!`);
                         console.log('Earth is safe for another day. . .');
                         setTimeout(() => window.alert(`The ${this.name} returns triumphant!\nEarth is safe for another day. . .`), 50);
@@ -119,7 +119,7 @@ class AlienShip {
     // ENEMY=> I HARDCODED THE "USS_Assembly" AS THE ENEMY FOR ALL ALIEN SHIPS.
     // HULL=> REGARDING THE "+3", THAT THREE WOULD BE THE LOWEST POSSIBLE VALUE. THE "Math.round(Math.random() * 3)" FUNCTION GIVES THE HULL THE VALUE OF 6 AS THE HIGHEST POSSIBLE HULL STRENGTH
     // FIREPOWER=> REGARDING THE "+2", THAT TWO WOULD BE THE LOWEST POSSIBLE VALUE. THE "Math.round(Math.random() * 2)" FUNCTION GIVES IT THE VALUE OF 4 AS THE HIGHEST POSSIBLE FIREPOWER
-    // ACCURACY=> REGARDING THE "+6", THAT TWO WOULD BE THE LOWEST POSSIBLE VALUE. THE "Math.round(Math.random() * 2)" FUNCTION GIVES IT THE VALUE OF 8 AS THE HIGHEST POSSIBLE ACCURACY, WHICH IS THEN DIVIDED BY TEN (THE RANGE IS NOW BETWEEN 0.6 AND 0.8)
+    // ACCURACY=> REGARDING THE "+6", THAT SIX WOULD BE THE LOWEST POSSIBLE VALUE. THE "Math.round(Math.random() * 6)" FUNCTION GIVES IT THE VALUE OF 8 AS THE HIGHEST POSSIBLE ACCURACY, WHICH IS THEN DIVIDED BY TEN (THE RANGE IS NOW BETWEEN 0.6 AND 0.8)
     constructor(name, enemy = USS_Assembly, hull = Math.round(Math.random() * 3) + 3, firepower = Math.round(Math.random() * 2) + 2, accuracy = (Math.round(Math.random() * 2) + 6) / 10) {
         this.name = name;
         this.enemy = enemy;
